@@ -25,12 +25,11 @@ public class Convidado implements Serializable {
 	private String email;
 	private String nome;
 	private Date dataNasc;
+
 	
-	 @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Dependente> dependentes = new ArrayList<Dependente>();
 
-	public Convidado () {}
-	 
 	public String getEmail() {
 		return email;
 	}
@@ -63,9 +62,6 @@ public class Convidado implements Serializable {
 		this.id = id;
 	}
 
-	
-	
-	
 	public List<Dependente> getDependentes() {
 		return dependentes;
 	}
@@ -74,11 +70,16 @@ public class Convidado implements Serializable {
 		this.dependentes = dependentes;
 	}
 
-	public Convidado(Integer id, String nome, String email) {
+	public Convidado(Integer id, String nome,  Date date, String email) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.dataNasc = date;
+	}
+
+	public Convidado() {
+
 	}
 
 	@Override

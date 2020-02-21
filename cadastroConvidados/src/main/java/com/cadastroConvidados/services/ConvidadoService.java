@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cadastroConvidados.domain.Convidado;
 import com.cadastroConvidados.repositories.ConvidadoRepository;
+import com.cadastroConvidados.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ConvidadoService {
@@ -15,8 +16,20 @@ public class ConvidadoService {
 	
 	
 	
-	public Convidado buscar(Integer id) {
-		Optional<Convidado>obj = repo.findById(id);
-		return obj.orElse(null);	
+	public Convidado find(Integer id) {
+		Optional<Convidado> obj = repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Convidado.class.getName()));
+	}
+	
+	public Convidado insert(Convidado obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
+	
+	public Convidado update(Convidado obj) {
+		find(obj.getId());
+		
+		return repo.save(obj);
 	}
 }

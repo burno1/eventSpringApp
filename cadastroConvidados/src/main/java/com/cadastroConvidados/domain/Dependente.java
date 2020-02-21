@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.cadastroConvidados.domain.enums.TipoDependente;
 
 @Entity
 public class Dependente implements Serializable {
@@ -20,15 +24,27 @@ public class Dependente implements Serializable {
 	private String nome;
 	private String email;
 	private Date dataNasc;
-
-	public Dependente () {}
+	private Integer tipoDependente;
 	
 	
-	public Dependente(Integer id, String nome, String email) {
+	@ManyToOne
+	@JoinColumn(name="convidado_id")
+	private Convidado convidado;
+	
+	
+	
+	public Dependente(Integer id, String nome, Date date, String email,TipoDependente tipoDependente, Convidado convidado) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.dataNasc = date;
 		this.email = email;
+		this.tipoDependente = tipoDependente.getCod();
+		this.convidado = convidado;
+	}
+	
+	public Dependente() {
+	
 	}
 
 	public String getEmail() {
@@ -62,6 +78,8 @@ public class Dependente implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -86,6 +104,14 @@ public class Dependente implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public TipoDependente getTipoDependente() {
+		return TipoDependente.toEnum(tipoDependente);
+	}
+
+	public void setTipoDependente(Integer tipoDependente) {
+		this.tipoDependente = tipoDependente;
 	}
 
 }
