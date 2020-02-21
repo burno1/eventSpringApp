@@ -1,6 +1,5 @@
 package com.cadastroConvidados.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +43,5 @@ public class ConvidadoService {
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possível excluir um convidado que possui dependentes");
 		}
-	}
-	
-	public List<Convidado> findAll() {
-		return repo.findAll();
 	}
 }

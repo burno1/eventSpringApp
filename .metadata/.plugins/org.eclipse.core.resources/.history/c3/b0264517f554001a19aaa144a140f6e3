@@ -1,15 +1,12 @@
 package com.cadastroConvidados.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.cadastroConvidados.domain.Convidado;
 import com.cadastroConvidados.repositories.ConvidadoRepository;
-import com.cadastroConvidados.services.exceptions.DataIntegrityException;
 import com.cadastroConvidados.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -36,17 +33,8 @@ public class ConvidadoService {
 		return repo.save(obj);
 	}
 	
-	public void delete(Integer id) {
+	public void delete (Integer id) {
 		find(id);
-		try {
-			repo.deleteById(id);
-		}
-		catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possível excluir um convidado que possui dependentes");
-		}
-	}
-	
-	public List<Convidado> findAll() {
-		return repo.findAll();
+		repo.deleteById(id);
 	}
 }

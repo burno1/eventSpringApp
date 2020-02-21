@@ -1,0 +1,16 @@
+package com.cadastroConvidados.dto;
+
+import java.io.Serializable;
+
+public class ConvidadoDTO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	
+	
+	
+	
+}

@@ -27,8 +27,7 @@ public class Convidado implements Serializable {
 	private Date dataNasc;
 
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = false)
-	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Dependente> dependentes = new ArrayList<Dependente>();
 
 	public String getEmail() {
