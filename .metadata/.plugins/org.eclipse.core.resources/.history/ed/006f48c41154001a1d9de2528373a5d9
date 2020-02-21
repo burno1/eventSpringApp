@@ -1,0 +1,9 @@
+package com.cadastroConvidados.domain;
+
+
+
+public class Convidado {
+	private String email;
+	private String nome;
+	private Date dataNasc;
+}

@@ -1,0 +1,5 @@
+package com.cadastroConvidados.services;
+
+public class ConvidadoService {
+
+}

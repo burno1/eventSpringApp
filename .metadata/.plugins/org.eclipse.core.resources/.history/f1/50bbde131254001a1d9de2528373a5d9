@@ -1,0 +1,11 @@
+package com.cadastroConvidados.domain;
+
+import java.util.Date;
+import java.util.List;
+
+public class Convidado {
+	private String email;
+	private String nome;
+	private Date dataNasc;
+	private List<Dependente> listaDep;
+}

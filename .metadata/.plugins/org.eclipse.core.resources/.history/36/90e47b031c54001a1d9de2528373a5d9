@@ -1,0 +1,23 @@
+package com.cadastroConvidados;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.cadastroConvidados.domain.Convidado;
+import com.cadastroConvidados.repositories.ConvidadoRepository;
+
+@SpringBootApplication
+public class CadastroConvidadosApplication implements CommandLineRunner{
+	
+
+	@Autowired
+	private ConvidadoRepository repository;
+
+	public static void main(String[] args) {
+		SpringApplication.run(CadastroConvidadosApplication.class, args);
+	}
+	
+	
+}

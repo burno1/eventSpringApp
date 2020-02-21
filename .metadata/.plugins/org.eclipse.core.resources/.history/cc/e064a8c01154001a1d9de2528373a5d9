@@ -1,0 +1,5 @@
+package com.cadastroConvidados.domain;
+
+public class Convidado {
+
+}
