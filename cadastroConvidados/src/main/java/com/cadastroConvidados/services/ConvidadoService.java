@@ -8,9 +8,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.cadastroConvidados.domain.Convidado;
+import com.cadastroConvidados.dto.ConvidadoDTO;
 import com.cadastroConvidados.repositories.ConvidadoRepository;
-import com.cadastroConvidados.services.exceptions.DataIntegrityException;
-import com.cadastroConvidados.services.exceptions.ObjectNotFoundException;
+import com.cadastroConvidados.services.exception.DataIntegrityException;
+import com.cadastroConvidados.services.exception.ObjectNotFoundException;
 
 @Service
 public class ConvidadoService {
@@ -48,5 +49,9 @@ public class ConvidadoService {
 	
 	public List<Convidado> findAll() {
 		return repo.findAll();
+	}
+	
+	public Convidado fromDTO(ConvidadoDTO objDto) {
+		return new Convidado(objDto.getId(), objDto.getNome(), objDto.getDataNasc(), objDto.getEmail());
 	}
 }

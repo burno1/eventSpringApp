@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.cadastroConvidados.services.exceptions.DataIntegrityException;
-import com.cadastroConvidados.services.exceptions.ObjectNotFoundException;
+import com.cadastroConvidados.services.exception.DataIntegrityException;
+import com.cadastroConvidados.services.exception.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
