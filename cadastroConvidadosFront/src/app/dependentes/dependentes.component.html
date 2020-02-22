@@ -1,1 +1,96 @@
-<p>dependentes works!</p>
+<div class="fluid-container allPage">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Dependentes do fulano</h1>
+        
+      </div>
+    </div>
+    
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+    
+              <div class="col-2">
+                <p><b>Novo Dependente:</b></p>
+              </div>
+    
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Nome">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Email">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="DataNasc">
+              </div>
+              <div class="dropdown">
+                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Relação
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+              <div class="col">
+                <button (click)="salvar()" class="btn btn-primary">Salvar</button>
+              </div>
+            </div>
+    
+            <br>
+    
+            <div class="row">
+              <div class="col">
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">user</th>
+                      <th scope="col">Relacao</th>
+                      <th scope="col">Editar</th>
+                      <th scope="col">Excluir</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Conge</td>
+                      <td><button (click)="salvar()" class="btn btn-warning btn-sm"><i class="material-icons">
+                        edit
+                        </i></button></td>
+                      <td> <button (click)="salvar()" class="btn btn-danger btn-sm"><i class="material-icons">
+                        delete_sweep
+                        </i></button></td>
+                    </tr>
+    
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>John</td>
+                      <td>Doe</td>
+                      <td>@Jdo</td>
+                      <td>Conge</td>
+                      <td><button (click)="salvar()" class="btn btn-warning btn-sm"><i class="material-icons">
+                        edit
+                        </i></button></td>
+                      <td> <button (click)="salvar()" class="btn btn-danger btn-sm"><i class="material-icons">
+                        delete_sweep
+                        </i></button></td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+            </div>
+            </div>
+          </div>
+        </div>
+    
+      
+    </div>
+    </div>

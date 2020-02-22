@@ -12,4 +12,8 @@ export class ConvidadosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  salvar(){
+    console.log("Salvei!");
+  }
+
 }

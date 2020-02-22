@@ -10,12 +10,16 @@ export class DependentesComponent implements OnInit {
 
   constructor(private data: DataService) {}
   ngOnInit() {
-    this.pesquisar();
+    
   }
 
   pesquisar() {
     console.log("data");
     this.data.getCidade().subscribe();
+  }
+
+  salvar(){
+    console.log("Salvei!");
   }
 
 }
