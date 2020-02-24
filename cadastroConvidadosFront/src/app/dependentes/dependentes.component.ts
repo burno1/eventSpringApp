@@ -31,6 +31,7 @@ export class DependentesComponent implements OnInit {
   listar(){
     this.data.getConvidado(this.convidado$.id).subscribe(data=>{
       this.convidado$ = data;
+      this.montarDependente();
     });
   }
 
@@ -74,6 +75,7 @@ export class DependentesComponent implements OnInit {
         this.listar();
       })
      
+
      
   }
 
