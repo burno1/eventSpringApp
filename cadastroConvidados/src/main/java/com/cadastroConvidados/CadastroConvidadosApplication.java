@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.cadastroConvidados.domain.Convidado;
 import com.cadastroConvidados.domain.Dependente;
-import com.cadastroConvidados.domain.enums.TipoDependente;
 import com.cadastroConvidados.repositories.ConvidadoRepository;
 
 @SpringBootApplication
@@ -28,9 +27,9 @@ public class CadastroConvidadosApplication implements CommandLineRunner {
 		Convidado conv = new Convidado(null, "bruno",new Date(), "brunofernandes100@hotmail.com.br");
 
 		
-		Dependente dep1 = new Dependente(null, "dep1",new Date(),"dep@hotmail.com", TipoDependente.FILHO, conv);
-		Dependente dep2 = new Dependente(null, "dep2",new Date(),"dep@hotmail.com", TipoDependente.CONJUGE, conv);
-		Dependente dep3 = new Dependente(null, "dep3",new Date(),"dep@hotmail.com", TipoDependente.SECRETARIO, conv);
+		Dependente dep1 = new Dependente(null, "dep1",new Date(),"dep@hotmail.com", 1, conv);
+		Dependente dep2 = new Dependente(null, "dep2",new Date(),"dep@hotmail.com", 2, conv);
+		Dependente dep3 = new Dependente(null, "dep3",new Date(),"dep@hotmail.com", 3, conv);
 
 		
 		conv.setDependentes(new ArrayList<Dependente>());

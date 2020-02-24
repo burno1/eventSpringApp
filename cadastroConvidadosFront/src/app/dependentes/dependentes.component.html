@@ -1,7 +1,7 @@
 <div class="fluid-container allPage">
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">Dependentes do fulano</h1>
+        <h1 class="display-4">Dependentes do {{convidado$.nome}}</h1>
         
       </div>
     </div>
@@ -9,35 +9,37 @@
       <div class="container">
         <div class="card">
           <div class="card-body">
+            <form>
             <div class="row">
     
+              
               <div class="col-2">
                 <p><b>Novo Dependente:</b></p>
               </div>
     
               <div class="col">
-                <input type="text" class="form-control" placeholder="Nome">
+                <input type="text" class="form-control" name="nome" placeholder="Nome" [(ngModel)]="dependenteInput.nome" />
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Email">
+                <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="dependenteInput.email" />
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="DataNasc">
+                <input type="text" class="form-control" name="data" placeholder="DataNasc" [(ngModel)]="dependenteInput.dataNasc" />
               </div>
-              <div class="dropdown">
-                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Relação
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
+
+              <select [(ngModel)]="dependenteInput.tipoDependente" name="tipo" class="form-control col" required>
+                
+                <option [ngValue]="1" >Filho(a)</option>
+                <option [ngValue]="2">Cônjuge</option>
+                <option [ngValue]="3">Secretaria(o)</option>
+            </select>
+            
+              
               <div class="col">
-                <button (click)="salvar()" class="btn btn-primary">Salvar</button>
+                <button type="submit" (click)="salvar()" class="btn btn-primary">Salvar</button>
               </div>
             </div>
+          </form>
     
             <br>
     
@@ -56,33 +58,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Conge</td>
-                      <td><button (click)="salvar()" class="btn btn-warning btn-sm"><i class="material-icons">
+                    <tr *ngFor="let dependente of convidado$.dependentes">
+                      <th scope="row">{{dependente.id}}</th>
+                      <td>{{dependente.nome}}</td>
+                      <td>{{dependente.email}}</td>
+                      <td>{{dependente.dataNasc}}</td>
+                      <td>{{dependente.tipoDependente}}</td>
+                      <td><button (click)="editar(dependente.id)" class="btn btn-warning btn-sm"><i class="material-icons">
                         edit
                         </i></button></td>
-                      <td> <button (click)="salvar()" class="btn btn-danger btn-sm"><i class="material-icons">
+                      <td> <button (click)="excluir(dependente.id)" class="btn btn-danger btn-sm"><i class="material-icons">
                         delete_sweep
                         </i></button></td>
                     </tr>
     
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>John</td>
-                      <td>Doe</td>
-                      <td>@Jdo</td>
-                      <td>Conge</td>
-                      <td><button (click)="salvar()" class="btn btn-warning btn-sm"><i class="material-icons">
-                        edit
-                        </i></button></td>
-                      <td> <button (click)="salvar()" class="btn btn-danger btn-sm"><i class="material-icons">
-                        delete_sweep
-                        </i></button></td>
-                    </tr>
+                   
                    
                   </tbody>
                 </table>

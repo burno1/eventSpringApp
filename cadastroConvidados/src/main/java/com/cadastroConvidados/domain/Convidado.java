@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,8 +28,7 @@ public class Convidado implements Serializable {
 	private Date dataNasc;
 
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = false)
-	
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<Dependente> dependentes = new ArrayList<Dependente>();
 
 	public String getEmail() {

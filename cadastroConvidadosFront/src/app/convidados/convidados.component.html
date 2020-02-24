@@ -15,14 +15,16 @@
             <p><b>Novo Cadastro:</b></p>
           </div>
 
+          
+
           <div class="col">
-            <input type="text" class="form-control" placeholder="Nome">
+            <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="convidado.nome" />
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="Email">
+            <input type="text" class="form-control" placeholder="Email" [(ngModel)]="convidado.email" />
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="DataNasc">
+            <input type="text" class="form-control" placeholder="DataNasc" [(ngModel)]="convidado.dataNasc" />
           </div>
           <div class="col">
             <button (click)="salvar()" class="btn btn-primary">Salvar</button>
@@ -37,46 +39,32 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">user</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">DataNasc</th>
                   <th scope="col">Deps</th>
                   <th scope="col">Editar</th>
                   <th scope="col">Excluir</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td><button (click)="salvar()" class="btn btn-info btn-sm"><i class="material-icons">
+                <tr *ngFor="let convidado of convidados$; let i = index">
+                  <th scope="row">{{i}}</th>
+                  <td>{{convidado.nome}}</td>
+                  <td>{{convidado.email}}</td>
+                  <td>{{convidado.dataNasc}}</td>
+                  <td><button (click)="irDependentes(convidado.id)" class="btn btn-info btn-sm"><i class="material-icons">
                     group
                     </i></button></td>
-                  <td><button (click)="salvar()" class="btn btn-warning btn-sm"><i class="material-icons">
+                  <td><button (click)="editar(convidado.id)" class="btn btn-warning btn-sm"><i class="material-icons">
                     edit
                     </i></button></td>
-                  <td> <button (click)="salvar()" class="btn btn-danger btn-sm"><i class="material-icons">
+                  <td> <button (click)="deletar(convidado.id)" class="btn btn-danger btn-sm"><i class="material-icons">
                     delete_sweep
                     </i></button></td>
                 </tr>
 
-                <tr>
-                  <th scope="row">2</th>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td>@Jdo</td>
-                  <td><button (click)="salvar()" class="btn btn-info btn-sm"><i class="material-icons">
-                    group
-                    </i></button></td>
-                  <td><button (click)="salvar()" class="btn btn-warning btn-sm"><i class="material-icons">
-                    edit
-                    </i></button></td>
-                  <td> <button (click)="salvar()" class="btn btn-danger btn-sm"><i class="material-icons">
-                    delete_sweep
-                    </i></button></td>
-                </tr>
+                
                
               </tbody>
             </table>
