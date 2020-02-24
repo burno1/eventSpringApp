@@ -9,11 +9,11 @@
 <fullyQualifiedTypeName name="com.cadastroConvidados.repositories.ConvidadoRepository"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
 <fullyQualifiedTypeName name="com.cadastroConvidados.dto.DependenteDTO"/>
 <fullyQualifiedTypeName name="com.cadastroConvidados.domain.Convidado"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 </qualifiedTypeNameHistroy>

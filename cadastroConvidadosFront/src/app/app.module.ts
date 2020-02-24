@@ -9,6 +9,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { deLocale } from 'ngx-bootstrap/locale';
+defineLocale('br', deLocale);
+
 
 
 
@@ -24,9 +31,19 @@ import { RouterModule, Routes } from '@angular/router';
     NgbModule,
     HttpClientModule ,
     FormsModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    
     
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+  constructor(private bsLocaleService: BsLocaleService) {
+    this.bsLocaleService.use('br');
+    }
+  
+  
+}

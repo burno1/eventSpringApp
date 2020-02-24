@@ -24,7 +24,12 @@
             <input type="text" class="form-control" placeholder="Email" [(ngModel)]="convidado.email" />
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="DataNasc" [(ngModel)]="convidado.dataNasc" />
+            <input type="text"
+                  placeholder="DataNasc"
+                  class="form-control"
+                  bsDatepicker
+                  [(ngModel)]="convidado.dataNasc"
+                  [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"> 
           </div>
           <div class="col">
             <button (click)="salvar()" class="btn btn-primary">Salvar</button>
@@ -52,7 +57,7 @@
                   <th scope="row">{{i}}</th>
                   <td>{{convidado.nome}}</td>
                   <td>{{convidado.email}}</td>
-                  <td>{{convidado.dataNasc}}</td>
+                  <td>{{mostraData(convidado.dataNasc)}}</td>
                   <td><button (click)="irDependentes(convidado.id)" class="btn btn-info btn-sm"><i class="material-icons">
                     group
                     </i></button></td>

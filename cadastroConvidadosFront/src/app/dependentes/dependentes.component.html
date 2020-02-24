@@ -6,7 +6,9 @@
       </div>
     </div>
     
-      <div class="container">
+    <div class="container">
+      <button class="btn btn-primary" (click)="voltarConvidado()"> Voltar</button> 
+      <p style="color:red"><b> {{msg}}</b></p>
         <div class="card">
           <div class="card-body">
             <form>
@@ -16,7 +18,7 @@
               <div class="col-2">
                 <p><b>Novo Dependente:</b></p>
               </div>
-    
+              
               <div class="col">
                 <input type="text" class="form-control" name="nome" placeholder="Nome" [(ngModel)]="dependenteInput.nome" />
               </div>
@@ -24,9 +26,14 @@
                 <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="dependenteInput.email" />
               </div>
               <div class="col">
-                <input type="text" class="form-control" name="data" placeholder="DataNasc" [(ngModel)]="dependenteInput.dataNasc" />
+                <input type="text"
+                      placeholder="DataNasc"
+                      class="form-control"
+                      name="dataNasc"
+                      bsDatepicker
+                      [(ngModel)]="dependenteInput.dataNasc"
+                      [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"> 
               </div>
-
               <select [(ngModel)]="dependenteInput.tipoDependente" name="tipo" class="form-control col" required>
                 
                 <option [ngValue]="1" >Filho(a)</option>
@@ -62,8 +69,8 @@
                       <th scope="row">{{dependente.id}}</th>
                       <td>{{dependente.nome}}</td>
                       <td>{{dependente.email}}</td>
-                      <td>{{dependente.dataNasc}}</td>
-                      <td>{{dependente.tipoDependente}}</td>
+                      <td>{{mostraData(dependente.dataNasc)}}</td>
+                      <td>{{mostraRelacao(dependente.tipoDependente)}}</td>
                       <td><button (click)="editar(dependente.id)" class="btn btn-warning btn-sm"><i class="material-icons">
                         edit
                         </i></button></td>
